@@ -1,6 +1,6 @@
 from django.shortcuts import render
 
-from django.views.generic.edit import CreateView, UpdateView
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.views.generic.list import ListView
 from studentorg.models import Organization
 from studentorg.forms import OrganizationForm
@@ -29,4 +29,11 @@ class OrganizationUpdateView(UpdateView):
     template_name = 'org_edit.html'
     success_url = reverse_lazy('organization-list')
     
+
+class OrganizationDeleteView(DeleteView):
+    model = Organization
+    template_name = 'org_del.html'
+    success_url = reverse_lazy('organization-list')
+    
+
     
